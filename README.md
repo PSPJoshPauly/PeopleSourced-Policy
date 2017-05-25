@@ -1,5 +1,5 @@
 
-# MEAN Stack Based Website
+# MEAN Stack Based APP/Website
 
 
 ## APP Description:
