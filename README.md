@@ -29,11 +29,10 @@
 
   4. Add a connection to firebase on your front end
     1. Click the “Add Firebase to your web app” icon
-    2. Copy the contents WITHOUT SCRIPT TAGS or the CDN from the resulting popup into `public/scripts/config.js`. It should look like this:
+    2. Copy the contents WITHOUT SCRIPT TAGS or the CDN from the resulting popup into ``public/scripts/config.js``. It should look like this:
 
-    ```
-      javascript
-        // Initialize Firebase
+    ``` javascript
+      // Initialize Firebase
         var config = {
           apiKey: "XXXXXXXXXXXXXXXXXXXXXX",
           authDomain: "XXXXXXXXXXXX.firebaseapp.com",
@@ -42,9 +41,9 @@
           messagingSenderId: "XXXXXXXXXX"
         };
         firebase.initializeApp(config);
-    ```
+     ```
 
-    5. Add a firebase service account to you node project
+    5. Add firebase service account to your node.js project
       1. Navigate to the [Service Accounts](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk) tab in your project's settings page.
       2. Select your Firebase project.
       3. Copy your `databaseURL` from the `Admin SDK configuration snippet`. The line you need will look like this: `databaseURL: "https://XXXXXXXXX.firebaseio.com"`.
@@ -52,7 +51,7 @@
 
         ```javascript
         admin.initializeApp({
-          credential: admin.credential.cert("./server/firebase-service-account.json"),
+          credential: admin.credential.cert("./server/firebase-service-account.js",
           databaseURL: "https://XXXXXXXXX.firebaseio.com" // replace this line with your URL
         });
         ```
