@@ -1,37 +1,45 @@
 
-
-### Technologies Used
-  1. Node.js
-  2. Angular.js  ``` v1.6.3 ```
-  3. Angular Route  ``` v1.6.3 ```
-  4. angular-tooltips `` 1.1.10 ``
-  5. Angular-material `` 1.1.4 ``
-  6. Express.js  ``` v4.15.2 ```
-  7. Body-Parser ``` v1.17.1 ```
-  8. PG  ``` v6.1.4 ```  
-  9. Bootstrap ``` v3.3.7 ```
-  10. Firebase `` 3.7.5 ``
-  11. Firebase-admin `` 4.0.3 ``
-  12. Charts.js `` 2.5.0 ``
-  13. GIT / GitHub
-  14. Heroku
+# MEAN Stack Based Website
 
 
+## APP Description:
 
-### Download App
+---
+
+#### Technologies Used
+  - Node.js
+  - Angular.js  ``` v1.6.3 ```
+  - Angular Route  ``` v1.6.3 ```
+  - angular-tooltips `` 1.1.10 ``
+  - Angular-material `` 1.1.4 ``
+  - Express.js  ``` v4.15.2 ```
+  - Body-Parser ``` v1.17.1 ```
+  - PG  ``` v6.1.4 ```  
+  - Bootstrap ``` v3.3.7 ```
+  - Firebase `` 3.7.5 ``
+  - Firebase-admin `` 4.0.3 ``
+  - Charts.js `` 2.5.0 ``
+  - GIT / GitHub
+  - Heroku
+
+---
+
+#### Download App
   1. Download zip file
   2. Open terminal and navigate into folder
 
-### Create Firebase Account
-  2. Create a free Firebase account at https://firebase.google.com
+---  
 
-  3. Create a project from your Firebase account console
+#### Create Firebase Account
+  1. Create a free Firebase account at https://firebase.google.com
 
-  4. Add a connection to firebase on your front end
+  2. Create a project from your Firebase account console
+
+  3. Add a connection to firebase on your front end
     1. Click the “Add Firebase to your web app” icon
     2. Copy the contents WITHOUT SCRIPT TAGS or the CDN from the resulting popup into ``public/scripts/config.js``. It should look like this:
 
-    ``` javascript
+    ```
       // Initialize Firebase
         var config = {
           apiKey: "XXXXXXXXXXXXXXXXXXXXXX",
@@ -43,32 +51,40 @@
         firebase.initializeApp(config);
      ```
 
-    5. Add firebase service account to your node.js project
-      1. Navigate to the [Service Accounts](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk) tab in your project's settings page.
-      2. Select your Firebase project.
-      3. Copy your `databaseURL` from the `Admin SDK configuration snippet`. The line you need will look like this: `databaseURL: "https://XXXXXXXXX.firebaseio.com"`.
-      4. Navigate to the `server/modules/decoder.js` file in the node project and replace the databaseURL. Only replace that line. It is inside of the `admin.initializeApp`:
+  4. Add firebase service account to your node.js project
+    1. Navigate to the [Service Accounts](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk) tab in your project's settings page.
+    2. Select your Firebase project.
+    3. Copy your ``databaseURL`` from the ``Admin SDK configuration snippet``. The line you need will look like this: ``databaseURL: "https://XXXXXXXXX.firebaseio.com"``.
+    4. Navigate to the ``server/modules/decoder.js`` file in the node project and replace the databaseURL. Only replace that line. It is inside of the ``admin.initializeApp``:
 
-        ```javascript
-        admin.initializeApp({
-          credential: admin.credential.cert("./server/firebase-service-account.js",
-          databaseURL: "https://XXXXXXXXX.firebaseio.com" // replace this line with your URL
-        });
-        ```
-      5. Return to firebase [Service Accounts](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk). Navigate to your project again if you have left it.
-      6. Click the Generate New Private Key button at the bottom of the Firebase Admin SDK section of the Service Accounts tab.
-      7. Rename the new JSON file to `firebase-service-account.json` and save it in the `server` folder of your application.
+    ```
+      admin.initializeApp({
+        credential: admin.credential.cert("./server/firebase-service-account.js",
+        // replace this line with your URL
+        databaseURL: "https://XXXXXXXXX.firebaseio.com"        
+      });
+    ```
 
-    6. Return to Firebase console. Configure Google as an authentication provider for your Firebase project.
-      1. In the Firebase console for your project (you may already be there from the previous step), click "Authentication" in left panel
-      2. Click "Set Up Sign-In Method" button
-      3. Select "Google"
-      4. Click the "edit" icon
+  5. Return to firebase [Service Accounts](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk). Navigate to your project again if you have left it.
+  6. Click the Generate New Private Key button at the bottom of the Firebase Admin SDK section of the Service Accounts tab.
+  7. Rename the new JSON file to `firebase-service-account.json` and save it in the `server` folder of your application.
+
+  8. Return to Firebase console. Configure Google as an authentication provider for your Firebase project.
+    1. In the Firebase console for your project (you may already be there from the previous step), click "Authentication" in left panel
+    2. Click "Set Up Sign-In Method" button
+    3. Select "Google"
+    4. Click the "edit" icon
     5. Toggle Google to `on`
 
+---
 
+#### Google Civic API
 
-### Start App
+  1. Follow directions from Google Civiv API documentation here: https://developers.google.com/civic-information/
+
+---
+
+#### Start App
   1. Run commands:
     - ``` npm install ``` Installs Node Packages including dependencies from package.json
     - ``` brew services start postgresql ``` Starts DB server connection to Postico (or equivalent for MongoDB)
