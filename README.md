@@ -31,7 +31,8 @@
     1. Click the “Add Firebase to your web app” icon
     2. Copy the contents WITHOUT SCRIPT TAGS or the CDN from the resulting popup into `public/scripts/config.js`. It should look like this:
 
-      ```javascript
+    ```
+      javascript
         // Initialize Firebase
         var config = {
           apiKey: "XXXXXXXXXXXXXXXXXXXXXX",
@@ -41,7 +42,7 @@
           messagingSenderId: "XXXXXXXXXX"
         };
         firebase.initializeApp(config);
-        ```
+    ```
 
     5. Add a firebase service account to you node project
       1. Navigate to the [Service Accounts](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk) tab in your project's settings page.
