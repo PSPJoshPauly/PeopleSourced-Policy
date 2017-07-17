@@ -1,12 +1,62 @@
 
 # MEAN Stack Based APP/Website
 
+---
 
-## APP Description:
+## Description:
+#### Details go here
+
+###### User Home:
+<img src="./public/assets/images/screenshots/homeOne.png" width="50%">
+
+<img src="./public/assets/images/screenshots/homeTwo.png" width="50%">
+
+<img src="./public/assets/images/screenshots/homeThree.png" width="50%">
+
+###### User Idea:
+<img src="./public/assets/images/screenshots/ideaOne.png" width="50%">
+
+###### User Subtopic:
+<img src="./public/assets/images/screenshots/subtopicOne.png" width="50%">
+
+<img src="./public/assets/images/screenshots/subtopicTwo.png" width="50%">
+
+###### User Comment:
+<img src="./public/assets/images/screenshots/comment.png" width="50%">
+
+###### Admin Nav Bar:
+<img src="./public/assets/images/screenshots/adminIcon.png" width="50%">
+
+###### Admin Manage Users:
+<img src="./public/assets/images/screenshots/adminManageusers.png" width="50%">
+
+###### Admin Manage Flags:
+<img src="./public/assets/images/screenshots/adminFlags.png" width="50%">
+
+###### Admin Data Desktop:
+<img src="./public/assets/images/screenshots/adminDataOne.png" width="50%">
+
+<img src="./public/assets/images/screenshots/adminDataTwo.png" width="50%">
+
+<img src="./public/assets/images/screenshots/adminDataThree.png" width="50%">
+
+###### Admin Update topics:
+<img src="./public/assets/images/screenshots/updatetopicsOne.png" width="50%">
+
+<img src="./public/assets/images/screenshots/updatetopicsTwo.png" width="50%">
+
+###### Admin Create Next Trimester Topics
+
+<img src="./public/assets/images/screenshots/nexttrimesterOne.png" width="50%">
+
+
+
+
+
 
 ---
 
-#### Technologies Used
+## Technologies Used
   - Node.js
   - Angular.js  ``` v1.6.3 ```
   - Angular Route  ``` v1.6.3 ```
@@ -24,13 +74,13 @@
 
 ---
 
-#### Download App
+## Download App
   1. Download zip file
   2. Open terminal and navigate into folder
 
 ---  
 
-#### Create Firebase Account
+## Create Firebase Account
   1. Create a free Firebase account at https://firebase.google.com
 
   2. Create a project from your Firebase account console
