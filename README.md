@@ -7,52 +7,47 @@
 #### Details go here
 
 ###### User Home:
-<img src="./public/assets/images/screenshots/homeOne.png" width="50%" border="1">
+<img src="./public/assets/images/screenshots/homeOne.png" width="50%" border="3">
 
-<img src="./public/assets/images/screenshots/homeTwo.png" width="50%" border="1">
+<img src="./public/assets/images/screenshots/homeTwo.png" width="50%" border="3">
 
-<img src="./public/assets/images/screenshots/homeThree.png" width="50%">
+<img src="./public/assets/images/screenshots/homeThree.png" width="50%" border="3">
 
 ###### User Idea:
-<img src="./public/assets/images/screenshots/ideaOne.png" width="50%">
+<img src="./public/assets/images/screenshots/ideaOne.png" width="50%" border="3">
 
 ###### User Subtopic:
-<img src="./public/assets/images/screenshots/subtopicOne.png" width="50%">
+<img src="./public/assets/images/screenshots/subtopicOne.png" width="50%" border="3">
 
-<img src="./public/assets/images/screenshots/subtopicTwo.png" width="50%">
+<img src="./public/assets/images/screenshots/subtopicTwo.png" width="50%" border="3">
 
 ###### User Comment:
-<img src="./public/assets/images/screenshots/comment.png" width="50%">
+<img src="./public/assets/images/screenshots/comment.png" width="50%" border="3">
 
 ###### Admin Nav Bar:
-<img src="./public/assets/images/screenshots/adminIcon.png" width="50%">
+<img src="./public/assets/images/screenshots/adminIcon.png" width="50%" border="3">
 
 ###### Admin Manage Users:
-<img src="./public/assets/images/screenshots/adminManageusers.png" width="50%">
+<img src="./public/assets/images/screenshots/adminManageusers.png" width="50%" border="3">
 
 ###### Admin Manage Flags:
-<img src="./public/assets/images/screenshots/adminFlags.png" width="50%">
+<img src="./public/assets/images/screenshots/adminFlags.png" width="50%" border="3">
 
 ###### Admin Data Desktop:
-<img src="./public/assets/images/screenshots/adminDataOne.png" width="50%">
+<img src="./public/assets/images/screenshots/adminDataOne.png" width="50%" border="3">
 
-<img src="./public/assets/images/screenshots/adminDataTwo.png" width="50%">
+<img src="./public/assets/images/screenshots/adminDataTwo.png" width="50%" border="3">
 
-<img src="./public/assets/images/screenshots/adminDataThree.png" width="50%">
+<img src="./public/assets/images/screenshots/adminDataThree.png" width="50%" border="3">
 
 ###### Admin Update topics:
-<img src="./public/assets/images/screenshots/updatetopicsOne.png" width="50%">
+<img src="./public/assets/images/screenshots/updatetopicsOne.png" width="50%" border="3">
 
-<img src="./public/assets/images/screenshots/updatetopicsTwo.png" width="50%">
+<img src="./public/assets/images/screenshots/updatetopicsTwo.png" width="50%" border="3">
 
 ###### Admin Create Next Trimester Topics
 
-<img src="./public/assets/images/screenshots/nexttrimesterOne.png" width="50%">
-
-
-
-
-
+<img src="./public/assets/images/screenshots/nexttrimesterOne.png" width="50%" border="3">
 
 ---
 
