@@ -7,9 +7,9 @@
 #### Details go here
 
 ###### User Home:
-<img src="./public/assets/images/screenshots/homeOne.png" width="50%">
+<img src="./public/assets/images/screenshots/homeOne.png" width="50%" border="1">
 
-<img src="./public/assets/images/screenshots/homeTwo.png" width="50%">
+<img src="./public/assets/images/screenshots/homeTwo.png" width="50%" border="1">
 
 <img src="./public/assets/images/screenshots/homeThree.png" width="50%">
 
