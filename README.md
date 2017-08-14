@@ -1,10 +1,16 @@
 
-# MEAN Stack Based APP/Website
+# People Sourced Policy Web App
 
 ---
 
 ## Description:
-#### Details go here
+#### People Sourced Policy is an app that allows the Twin Cities communities get involved within the community of Minneapolis.  Once logged in, User's can participate by adding their own ideas to the pre selected topics for each trimester or comment on other peoples ideas.  Each tri-srmester contains a main topic with five sub-topics that pertain to the main topic.  The app includes a user rights as well as admin rights where "admin" can change the topics, manage all comments and ideas and manage all users.  The admin has complete control of the app.  App is both desktop and mobile friendly.
+
+---
+
+##### App can be viewed here: https://psp-communitysite-phi.herokuapp.com/
+
+---
 
 ###### User Home:
 <img src="./public/assets/images/screenshots/homeOne.png" width="50%" border="3">
@@ -53,17 +59,17 @@
 
 ## Technologies Used
   - Node.js
-  - Angular.js  ``` v1.6.3 ```
-  - Angular Route  ``` v1.6.3 ```
-  - angular-tooltips `` 1.1.10 ``
-  - Angular-material `` 1.1.4 ``
-  - Express.js  ``` v4.15.2 ```
-  - Body-Parser ``` v1.17.1 ```
-  - PG  ``` v6.1.4 ```  
-  - Bootstrap ``` v3.3.7 ```
-  - Firebase `` 3.7.5 ``
-  - Firebase-admin `` 4.0.3 ``
-  - Charts.js `` 2.5.0 ``
+  - Angular.js
+  - Angular Route
+  - angular-tooltips
+  - Angular-material
+  - Express.js
+  - Body-Parser
+  - PG  
+  - Bootstrap
+  - Firebase
+  - Firebase-admin
+  - Charts.js
   - GIT / GitHub
   - Heroku
 
