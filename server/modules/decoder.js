@@ -59,7 +59,7 @@ var tokenDecoder = function (req, res, next) {
     // technically, some of these should return 403 and some should return 404
     res.sendStatus(405);
   }
-}
+};
 
 module.exports = {
  token: tokenDecoder,

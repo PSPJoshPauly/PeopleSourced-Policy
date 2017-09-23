@@ -135,6 +135,19 @@ forked from: https://github.com/chris-stanton/APP-people-sourced-policy
   1. Follow directions from Google Civiv API documentation here: https://developers.google.com/civic-information/
 
 ---
+#### Local postgresql Setup
+1. download and install postgresql
+  - [useful resource for Mac users](https://www.codementor.io/devops/tutorial/getting-started-postgresql-server-mac-osx)
+2. Create database for local development
+  - CREATE DATABASE psp_database;
+  - OR
+  - createdb -U postgres psp_database
+3. Run database.sql to populate the database
+  - psql -d psp_database -a -f database.sql
+  - run this from within the projects root directory
+
+
+---
 
 #### Start App
   1. Run commands:

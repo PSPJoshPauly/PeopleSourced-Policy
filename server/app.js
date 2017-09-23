@@ -7,7 +7,7 @@ var decoder = require('./modules/decoder');
 var portDecision = process.env.PORT || 5000;
 
 //Serving favicon
-var favicon = require('serve-favicon')
+var favicon = require('serve-favicon');
 
 //Routes
 var admin = require('./routes/admin');
