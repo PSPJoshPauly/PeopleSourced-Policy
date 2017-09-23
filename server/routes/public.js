@@ -7,7 +7,7 @@ var pool = require('../modules/database-config');
 //*****************************************//
 
 router.get('/findActiveTopic', function(req, res){
-  var title = req.headers.title
+  var title = req.headers.title;
   var description = req.headers.description;
   pool.connect( function (err, client, done) {
     client.query('SELECT * FROM main_topics WHERE active = true;', function(err, result){
