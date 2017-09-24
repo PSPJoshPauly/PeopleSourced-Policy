@@ -20,6 +20,7 @@
         <form class="basicForm" align="center" action="index.html" method="post">
           <p> Share Your Idea With Others In Minneapolis </p>
           <select ng-model="ic.idea.subtopicId" class="selector100" name="Subtopics">
+            <option value="" ng-show="false"> Select: </option>
             <option ng-repeat="subtopic in ic.subTopic.list" value="{{subtopic.id}}"> {{subtopic.title}} </option>
           </select>
           <input ng-model="ic.idea.title" class="lightGrey" type="text" name="" value="" placeholder="Idea">

@@ -24,7 +24,8 @@
       <link rel="stylesheet" href="../vendors/angular-material.css">
 
       <script src="vendors/chartist.min.js" charset="utf-8"></script>
-        <link rel="stylesheet"href="vendors/chartist.min.css">
+      <link rel="stylesheet"href="vendors/chartist.min.css">
+      <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Montserrat%3A400%2C700%7CLora%3A400%2C400i%2C700&#038;ver=1.0.0' type='text/css' media='all' />
 
       <script src="../scripts/controllers/admin-flagged-controller.js" charset="utf-8"></script>
       <script src="../scripts/controllers/admin-manage-users-controller.js" charset="utf-8"></script>
@@ -68,9 +69,136 @@
     <div ng-include="'/views/templates/admin_bar.html'"></div>
     <div ng-include="'/views/templates/mainNav.html'"></div>
 
-    <main ng-view autoscroll="true"></main>
+    <main ng-view autoscroll="true" class="main"></main>
     <div ng-include="'/views/templates/footer.html'"></div>
 
-  </body>
+    <script type="text/javascript" src="http://peoplesourcedpolicy.org/wp-content/themes/batter/assets/js/particles.min.js?ver=4.8.2"></script>
+    <script type="text/javascript">
+      // Translation
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'de,en,es,fr,hmn,so,vi,zh-CN,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+      }
 
+      // Particles
+      document.addEventListener("DOMContentLoaded", function(event) {
+        setTimeout(function () {
+          var particles = document.getElementById('particles-js');
+          if (particles) {
+            particlesJS('particles-js', {
+              "particles": {
+                "number": {
+                  "value": 50,
+                  "density": {
+                    "enable": true,
+                    "value_area": 800
+                  }
+                },
+                "color": {
+                  "value": "#ffffff"
+                },
+                "shape": {
+                  "type": "none",
+                  "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                  },
+                  "polygon": {
+                    "nb_sides": 5
+                  },
+                  "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                  }
+                },
+                "opacity": {
+                  "value": 0.5,
+                  "random": false,
+                  "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                  }
+                },
+                "size": {
+                  "value": 3,
+                  "random": true,
+                  "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                  }
+                },
+                "line_linked": {
+                  "enable": true,
+                  "distance": 150,
+                  "color": "#ffffff",
+                  "opacity": 0.4,
+                  "width": 1
+                },
+                "move": {
+                  "enable": true,
+                  "speed": 6,
+                  "direction": "none",
+                  "random": false,
+                  "straight": false,
+                  "out_mode": "out",
+                  "bounce": false,
+                  "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                  }
+                }
+              },
+              "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                  "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                  },
+                  "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                  },
+                  "resize": true
+                },
+                "modes": {
+                  "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                      "opacity": 1
+                    }
+                  },
+                  "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                  },
+                  "repulse": {
+                    "distance": 50,
+                    "duration": 0.4
+                  },
+                  "push": {
+                    "particles_nb": 4
+                  },
+                  "remove": {
+                    "particles_nb": 2
+                  }
+                }
+              },
+              "retina_detect": true
+            });
+          }
+        }, 0);
+      });
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="google_translate_element" style="position: absolute; top: 0; right: 0;"></div>
+  </body>
 </html>
