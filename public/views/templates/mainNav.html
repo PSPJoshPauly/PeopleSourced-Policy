@@ -17,12 +17,17 @@
 
       <!--//SIGN IN BUTTON//-->
       <!-- <img class="authImage" ng-hide="!lc.email" src="{{lc.photo}}">{{lc.email}} -->
-
-      <button ng-show="!lc.email" ng-click="lc.passwordLogin()" type="submit" class="btn-log">
-        Login <i class="fa fa-sign-in"></i>
+      <button ng-show="!lc.email" ng-click="lc.login()" type="submit" class="btn-log">
+        Password <i class="fa fa-key"></i>
       </button>
       <button ng-show="!lc.email" ng-click="lc.login()" type="submit" class="btn-log">
-        Google <i class="fa fa-sign-in"></i>
+        Google <i class="fa fa-google"></i>
+      </button>
+      <button ng-show="!lc.email" ng-click="lc.login()" type="submit" class="btn-log">
+        Facebook <i class="fa fa-facebook"></i>
+      </button>
+      <button ng-show="!lc.email" ng-click="lc.login()" type="submit" class="btn-log">
+        Twitter <i class="fa fa-twitter"></i>
       </button>
       <!--//SIGN OUT BUTTON//-->
       <button ng-click="lc.logout()" ng-show="lc.email" type="submit" class="btn-log">

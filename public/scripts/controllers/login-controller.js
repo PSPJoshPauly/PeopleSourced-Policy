@@ -75,45 +75,52 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
           self.email = ''; //sets button to LOGOUT
           $scope.$apply();
         }
-});
+      });
       $route.reload();
     }).catch(function(error) {
-      console.log("Authentication failed: ", error);
+      console.log("Google Authentication failed: ", error);
 
     });//end of .catch
   };//end of self.login()
 
 //create account with email and password
-emailPasswordCreate = function(){
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
+self.emailPasswordCreate = function(email, password){
+  //
+  var userEmail = email;
+  var userPassword = password;
+  firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).then(function(firebaseUser) {
+    console.log("User " + firebaseUser.uid + " created successfully!");
+    loginView();
+    $scope.$apply();
+  }).catch(function(error) {
     if(error){
       console.log(error);
     }
-    loginView();
-    $scope.$apply();
   });
 };
 
 //Regular email password login
-  self.passwordLogin = function() {
-    auth.$signInWithEmailAndPassword(email, password).catch(function(error) {
-      //error handling
-      if(error){
-        console.log(error);
-      }
+  self.passwordLogin = function(email, password) {
+    var userEmail = email;
+    var userPassword = password;
+    auth.$signInWithEmailAndPassword(userEmail, userPassword).then(function(firebaseUser) {
       //checks if user is within database
       DataFactory.checkUserStatus().then(function(response){
         if(response.data == true){
           self.email = true;
           //user is in the database. Don't do anything.
         } else if (response.data == false){
-          //user is not in the database. Call emailPasswordCreate
-          emailPasswordCreate();
+          //user is not in the database.
+          loginView();
+          self.email = ''; //sets button to LOGOUT
+          $scope.$apply();
         }
-      });
+      }).catch(function(error) {
+      //error handling
+      console.log("Password authentication failed: ", error);
     });
-  };
+  });
+};
 
   //When user hits logout
   self.logout = function() {

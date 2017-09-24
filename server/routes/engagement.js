@@ -13,8 +13,8 @@ router.post('/newidea', function (req, res) {
   var newIdea = req.body;
   pool.connect()
     .then(function (client) {
-      client.query('INSERT INTO ideas (title, description, subtopics_id, user_id) VALUES ($1, $2, $3, $4)',
-        [newIdea.title, newIdea.description, newIdea.subtopicId, req.decodedToken.userSQLId])
+      client.query('INSERT INTO ideas (title, description, subtopics_id, user_id, active) VALUES ($1, $2, $3, $4, $5)',
+        [newIdea.title, newIdea.description, newIdea.subtopicId, req.decodedToken.userSQLId, true])
         .then(function (result) {
           console.log('made it into new idea');
           client.release();
