@@ -22,7 +22,7 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
      TopicsFactory.checkAdminStatus().then(function(response){
        self.isAdmin = TopicsFactory.isAdmin;
        var name = firebaseUser.displayName;
-       var split = name.split(" ")
+       var split = name.split(" ");
        self.name = split[0];
      });
      // go reload idea data....
@@ -34,7 +34,7 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
      TopicsFactory.checkAdminStatus().then(function(response){
        self.isAdmin = TopicsFactory.isAdmin;
            var name = firebaseUser.displayName;
-           var split = name.split(" ")
+           var split = name.split(" ");
            self.name = split[0];
      });
     //  self.logout();
@@ -75,7 +75,7 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
           self.email = ''; //sets button to LOGOUT
           $scope.$apply();
         }
-      })
+});
       $route.reload();
     }).catch(function(error) {
       console.log("Authentication failed: ", error);
@@ -83,7 +83,37 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
     });//end of .catch
   };//end of self.login()
 
+//create account with email and password
+emailPasswordCreate = function(){
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    if(error){
+      console.log(error);
+    }
+    loginView();
+    $scope.$apply();
+  });
+};
 
+//Regular email password login
+  self.passwordLogin = function() {
+    auth.$signInWithEmailAndPassword(email, password).catch(function(error) {
+      //error handling
+      if(error){
+        console.log(error);
+      }
+      //checks if user is within database
+      DataFactory.checkUserStatus().then(function(response){
+        if(response.data == true){
+          self.email = true;
+          //user is in the database. Don't do anything.
+        } else if (response.data == false){
+          //user is not in the database. Call emailPasswordCreate
+          emailPasswordCreate();
+        }
+      });
+    });
+  };
 
   //When user hits logout
   self.logout = function() {
@@ -107,7 +137,7 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
       email : firebaseUser.email,
       photo : firebaseUser.photoURL,
       ward : ""
-    }
+    };
     //sends object to DB
     DataFactory.addNewUser(newUser);
     //empties inputs after submission
@@ -115,7 +145,7 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
     //redirects back to home view after submission
     logoutView();
     self.email = true;
-  }
+  };
 
   //redirect to address form
   function loginView() {
@@ -129,6 +159,6 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
   //redirect to admin view
   self.adminView = function() {
     $location.path('/admin-flags');
-  }
+  };
 
 }]);//end of app.controller()

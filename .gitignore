@@ -5,3 +5,4 @@ node_modules
 .firebaserc
 server/firebase-service-account.json
 .env
+package-lock.json
