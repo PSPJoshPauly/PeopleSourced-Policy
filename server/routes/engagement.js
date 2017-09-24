@@ -86,14 +86,14 @@ router.put('/addIdeaLike/:id', function(req, res){
     client.query('SELECT * FROM ideas_likes WHERE user_id=$1 AND idea_id=$2;', [req.decodedToken.userSQLId, ideaId], function(err, result){
       done();
       if(err){
-        ('Error on ideas_likes user check query', err);
+        console.log('Error on ideas_likes user check query', err);
       } else {
         if (result.rows.length == 0){
           pool.connect(function (err, client, done) {
             client.query('INSERT INTO ideas_likes (user_id, idea_id) VALUES ($1, $2);', [req.decodedToken.userSQLId, ideaId], function(err, result){
               done();
               if(err){
-                ('Error ideas_likes insert', err);
+                console.log('Error ideas_likes insert', err);
                 res.sendStatus(500);
               } else {
                 res.sendStatus(200);
@@ -117,14 +117,14 @@ router.put('/addIdeaLove/:id', function(req, res){
     client.query('SELECT * FROM ideas_loves WHERE user_id=$1 AND idea_id=$2;', [req.decodedToken.userSQLId, ideaId], function(err, result){
       done();
       if(err){
-        ('Error on ideas_loves user check query', err);
+        console.log('Error on ideas_loves user check query', err);
       } else {
         if (result.rows.length == 0){
           pool.connect(function (err, client, done) {
             client.query('INSERT INTO ideas_loves (user_id, idea_id) VALUES ($1, $2);', [req.decodedToken.userSQLId, ideaId], function(err, result){
               done();
               if(err){
-                ('Error ideas_loves insert', err);
+                console.log('Error ideas_loves insert', err);
                 res.sendStatus(500);
               } else {
                 res.sendStatus(200);
@@ -146,14 +146,14 @@ router.put('/addCommentLike/:id', function(req, res){
     client.query('SELECT * FROM comments_likes WHERE user_id=$1 AND comment_id=$2;', [req.decodedToken.userSQLId, commentId], function(err, result){
       done();
       if(err){
-        ('Error comments_likes user check query', err);
+        console.log('Error comments_likes user check query', err);
       } else {
         if (result.rows.length == 0){
           pool.connect(function (err, client, done) {
             client.query('INSERT INTO comments_likes (user_id, comment_id) VALUES ($1, $2);', [req.decodedToken.userSQLId, commentId], function(err, result){
               done();
               if(err){
-                ('Error comments_likes insert', err);
+                console.log('Error comments_likes insert', err);
                 res.sendStatus(500);
               } else {
                 res.sendStatus(200);
