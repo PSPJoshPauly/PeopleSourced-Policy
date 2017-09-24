@@ -21,14 +21,14 @@ app.controller('HomeController', ['DataFactory', 'TopicsFactory', '$firebaseAuth
       swal("Please login to engage with the community.", "Try Again!", "error");
     }
     DataFactory.addIdeaLike(ideaId, subTopicId);
-  }
+  };
 
   self.addIdeaLove = function(ideaId, subTopicId){
     if (firebaseUser === null){
       swal("Please login to engage with the community.", "Try Again!", "error");
     }
     DataFactory.addIdeaLove(ideaId, subTopicId);
-  }
+  };
 
   TopicsFactory.findActiveTopic();
   DataFactory.getMostLikedIdea();
@@ -36,7 +36,7 @@ app.controller('HomeController', ['DataFactory', 'TopicsFactory', '$firebaseAuth
   /* ============================================================================= *
   *               ADD NEW IDEA                                                     *
   * ============================================================================= */
-  -->
+
   self.addNewIdea = function(idea) {
     //sources firebaseUser in the function
     var auth = $firebaseAuth();
@@ -55,9 +55,9 @@ app.controller('HomeController', ['DataFactory', 'TopicsFactory', '$firebaseAuth
         subtopicId : idea.subtopicId,
         title : idea.title,
         description : idea.description
-      }
+      };
       //sents the idea object to factory
-      DataFactory.addNewIdea(newIdea)
+      DataFactory.addNewIdea(newIdea);
       //redirects the user to the subtopic they chose from the dropdown
       redirectToSubtopic(newIdea);
       //empties inputs on submit
@@ -65,16 +65,16 @@ app.controller('HomeController', ['DataFactory', 'TopicsFactory', '$firebaseAuth
     } else {
       notyf.alert('Please select a subtopic from the dropdown.');
     }
-  }//end of self.createIdea()
+  }; //end of self.createIdea()
 
   function getIdeas(index){
     DataFactory.getSubtopicIdeas(index);
   }
-  <!--
+
   /* ============================================================================= *
   *                  REDIRECTS                                                     *
   * ============================================================================= */
-  -->
+
   function redirectToSubtopic(url) {
     $location.path('/subtopics/' + url.subtopicId);
     DataFactory.getSubtopicIdeas(self.index);
@@ -86,16 +86,16 @@ app.controller('HomeController', ['DataFactory', 'TopicsFactory', '$firebaseAuth
 
   self.redirectLogin = function () {
     $location.url('/login');
-  }//end of redirectLogin()
+  }; //end of redirectLogin()
   self.moreComments = function(subtopicIdea) {
     $location.path('/comment/' + subtopicIdea.idea_id);
 
-  }
+  };
   //redirect to add idea view
   self.createIdea = function() {
     //redirect after submission
     $location.url('/idea');
-  }//end of self.createIdea
+  }; //end of self.createIdea
   self.flagIdeaClick = function (subtopicIdeas){
     // console.log("this is subtopicIdeas on flag IDEA click",subtopicIdeas);
 

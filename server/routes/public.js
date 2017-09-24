@@ -217,7 +217,7 @@ router.get('/subtopicIdeas', function(req, res){
     [subtopicId], function(err, result){
       done();
       if(err){
-        ('Error completing user subtopicIdeas query', err);
+        console.log('Error completing user subtopicIdeas query', err);
         res.sendStatus(500);
       } else {
         res.send(result.rows);

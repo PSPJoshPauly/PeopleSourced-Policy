@@ -6,9 +6,9 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
   var subtopicIdeas = { list : [] };
   var commentsObject = { list : [] };
   var userMatchObject = { list : [] };
-  var allSubcommentsObject = { list : [] }
-  var getIdeaIdObject = { list : [] }
-  var getCommentIdObject = { list : [] }
+  var allSubcommentsObject = { list : [] };
+  var getIdeaIdObject = { list : [] };
+  var getCommentIdObject = { list : [] };
   var userTally = {};
   var ideasTally = {};
   var commentsTally = {};
@@ -17,7 +17,7 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
   var email = {};
   var mostLikedIdea = {list: []};
   var mostCommentedIdea = {list: []};
-  var dbFilterObject = { list : [] }
+  var dbFilterObject = { list : [] };
 
 
   // //calls functions at startup
@@ -51,10 +51,10 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
           'Success',
           'The user has been deactivated.',
           'success'
-        )
-        init()
+        );
+        init();
       });
-    })
+    });
     getSubtopicIdeas();
     getComments();
     // getUserMatch();
@@ -74,7 +74,7 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
           id_token: idToken
         }
       }).then(function(response){
-        notyf.confirm('You are now a registered user!')
+        notyf.confirm('You are now a registered user!');
         self.newUser = {};
       }).catch(function(error) {
         swal("Sorry, we couldn't process your address.", "Try Again!", "error");
@@ -95,12 +95,12 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
         }
       }).then(function(response){
         console.log('response', response);
-        getSubtopicIdeas()
+        getSubtopicIdeas();
         // return $window.location.reload();
         $route.reload();
         // self.newIdea = {};
       }).then(function(){
-        return notyf.confirm('Your idea was added!')
+        return notyf.confirm('Your idea was added!');
       }).catch(function(error) {
         swal("Sorry, we couldn't process your request.", "Try Again!", "error");
         console.log('error authenticating', error);
@@ -126,7 +126,13 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
           subtopicIdeas.list[i].ideas_loves_count = 0;
         }
       }
-    });
+    }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log("subtopicIdeas.list: ", subtopicIdeas.list);
+    console.log("http response code: ", response.statusText);
+    console.log("http response data: ", response.data);
+  });
   }//end of getSubTopicIdeas()
 
   //adds flag/idea to DB
@@ -161,7 +167,7 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
       }).then(function(response){
         notyf.confirm('Your comment was added!');
         self.addComment = {};
-        $route.reload()
+        $route.reload();
       }).catch(function(error) {
         swal("Values Are Incorrect", "Try Again!", "error");
         console.log('error', error);
@@ -198,7 +204,7 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
     }).then(function(response){
       likesTally.count = response.data;
     });
-  };//end of firebase.auth()
+  } //end of firebase.auth()
 
   //adds sub comment to DB
   function addNewSubComment(newSubComment){
@@ -273,7 +279,7 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
           commentsObject.list[i].comments_likes_count = 0;
         }
       }
-    })
+    });
   }
 
 
@@ -291,7 +297,7 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
         return response;
       });
     });
-  };
+  }
 
   //function to add idea "like" to database
   function addIdeaLike(ideaId, subtopicId){
@@ -423,6 +429,6 @@ app.factory('DataFactory', ['$http', '$firebaseAuth', '$routeParams', '$window',
     getFilteredResult : getFilteredResult,
     //results form DB for admin-reports view
     dbFilterObject : dbFilterObject
-  }
+  };
 
 }]); // end of app.factory

@@ -69,7 +69,7 @@ router.get('/comments', function(req, res){
     client.query('SELECT * FROM comments JOIN ideas ON ideas.id=comments.idea_id WHERE email=$1 AND comments.active = true;', [userEmail], function(err, result){
       done();
       if(err){
-        ('Error completing get comments on page load query', err);
+        console.log('Error completing get comments on page load query', err);
         res.sendStatus(500);
       } else {
         res.send(result.rows[0]);
@@ -101,7 +101,7 @@ router.get('/idea', function(req, res) {
     client.query('SELECT * FROM idea;', [userEmail], function(err, result){
       done();
       if(err){
-        ('Error completing get causes on page load query', err);
+        console.log('Error completing get causes on page load query', err);
         res.sendStatus(500);
       } else {
         res.send(result.rows);

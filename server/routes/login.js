@@ -56,15 +56,18 @@ router.get('/checkUserStatus', function (req, res) {
 //*****************************************//
 router.post('/newUser', function (req, res) {
   var newUser = req.body;
-  // console.log('newUser: ', newUser.address);
+  console.log('newUser: ', newUser.address);
   var userAddress = newUser.address + ' ' + newUser.city + ', ' + newUser.state + ' ' + newUser.zipCode;
-  // console.log('user address', userAddress);
+  console.log('userAddress: ', userAddress);
+  console.log('newUser.address: ', newUser.address);
   civicInfo.voterInfo(
-    { address: newUser.address}, function callback (errors, data) {
-      // if (data.error.message == 'Failed to parse address' ||'No information for this address'){
-      //   console.log("error", errors);
-      //   res.sendStatus(500);
-      // }
+    { address: userAddress},
+    function callback (errors, data) {
+      if (data.error){
+         console.log("data.error: ", data.error);
+         console.log("Other errors: ", errors);
+         res.sendStatus(500);
+       }
        if(data && data.divisions){
         //  console.log("++++++++++++++++++data",data);
         newUser.ward = 0;
