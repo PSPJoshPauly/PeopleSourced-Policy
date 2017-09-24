@@ -29,7 +29,7 @@
           <div>
             <form class="ctaForm" align="center" action="index.html" method="post">
               <select ng-model="stc.idea.subtopicId">
-                <!-- <option>Choose a Topic</option> -->
+                <option value="" ng-show="false"> Select: </option>
                 <option ng-repeat="subtopic in stc.subTopic.list" value="{{subtopic.id}}"> {{subtopic.title}} </option>
               </select>
               <input ng-model="stc.idea.title" type="text" name="" value="" placeholder="Title">
@@ -47,7 +47,7 @@
 
     <div class="visible-xs-block">
       <div class="col-xs-1"></div>
-      <div class="col-xs-10 topicText">
+      <div class="col-xs-11 topicText">
         <h1> {{stc.individualSubtopic.list[0].title}} </h1>
         <p> {{stc.individualSubtopic.list[0].description}} </p>
       </div>
