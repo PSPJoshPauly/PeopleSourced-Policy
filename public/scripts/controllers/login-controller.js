@@ -60,11 +60,30 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
   //   });//end of .catch
   // };//end of self.login()
 
+  //check the user status in postgres database
+  // TODO: CALL THIS FUNCTION INSIDE OF THE VARIOUS LOGIN FUNCTIONS
+  checkUserStatus2 = function(){
+    DataFactory.checkUserStatus().then(function(response){
+      if(response.data == true){
+        self.email = true;
+        //user is in the database. Don't do anything.
+      } else if (response.data == false){
+        //user is not in the database. Send them to address form.
+        loginView();
+        self.email = ''; //sets button to LOGOUT
+        $scope.$apply();
+      }
+    }).catch(function(error){
+      console.error("Error checking user status: ", error);
+    });
+  };
+
   //user google login authentication
-  self.login = function() {
-    //popup google signup
-    auth.$signInWithPopup("google").then(function(firebaseUser) {
+  self.googleLogin = function() {
+    //popup google signin/up
+    auth.$signInWithPopup("google").then(function(result) {
       //checks to see if the user is in the database.
+      console.log("Signed in as:", result.user.uid);
       DataFactory.checkUserStatus().then(function(response){
         if(response.data == true){
           self.email = true;
@@ -75,6 +94,8 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
           self.email = ''; //sets button to LOGOUT
           $scope.$apply();
         }
+      }).catch(function(error){
+        console.error("Error checking user status: ", error);
       });
       $route.reload();
     }).catch(function(error) {
@@ -82,6 +103,29 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
 
     });//end of .catch
   };//end of self.login()
+
+self.facebookLogin = function(){
+  //facebook popup signin/up
+  auth.$signInWithPopup("facebook").then(function(result){
+    console.log("Signed in as:", result.user.uid);
+    //check if user exists
+    DataFactory.checkUserStatus().then(function(response){
+      if(response.data == true){
+        self.email = true;
+        //user is in the database. Don't do anything.
+      } else if (response.data == false){
+        //user is not in the database. Send them to address form.
+        loginView();
+        self.email = ''; //sets button to LOGOUT
+        $scope.$apply();
+      }
+    }).catch(function(error){
+      console.error("Error checking user status: ", error);
+    });
+  }).catch(function(error){
+    console.error("Facebook authentication failed:", error);
+  });
+};
 
 //create account with email and password
 self.emailPasswordCreate = function(email, password){
@@ -98,6 +142,9 @@ self.emailPasswordCreate = function(email, password){
     }
   });
 };
+
+//Twitter login
+// TODO: ADD TWITTER LOGIN
 
 //Regular email password login
   self.passwordLogin = function(email, password) {
