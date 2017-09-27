@@ -5,6 +5,14 @@ app.controller('LoginController', ['DataFactory', 'TopicsFactory', '$firebaseAut
   var self = this;
   var firebaseUser = auth.$getAuth();
 
+  //controls the state of the modal
+  self.loginModalShown = false;
+
+  self.toggleModal = function() {
+    console.log("toggleModal");
+    self.loginModalShown = !self.loginModalShown;
+  };
+
     // var notyf = new Notyf();
 
   TopicsFactory.checkAdminStatus().then(function(response){
@@ -79,53 +87,24 @@ function checkDatabaseForUser() {
 
 //logs in using google, facebook, or twitter
 self.socialLogin = function(provider) {
-  console.log("socialLogin passed: ", provider);
-  auth.$signInWithPopup(provider).then(function(result){
-    console.log("Signed in as:", result.user.uid);
+  console.info("socialLogin passed: ", provider);
+  auth.$signInWithPopup(provider).then(function(firebaseUser){
+    console.info("Signed in as:", firebaseUser.user.uid);
     //check database
     checkDatabaseForUser();
   }).catch(function(error){
-    console.error("Authentication failed:", error);
+    console.error("Authentication failed: ", error);
   });//end of .catch
 };//end of socialLogin
 
-
-//create account with email and password
-self.emailPasswordCreate = function(email, password){
-  //
-  var userEmail = email;
-  var userPassword = password;
-  firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).then(function(firebaseUser) {
-    console.log("User " + firebaseUser.uid + " created successfully!");
-    loginView();
-    $scope.$apply();
-  }).catch(function(error) {
-    if(error){
-      console.log(error);
-    }
-  });
-};
-
 //Regular email password login
   self.passwordLogin = function(email, password) {
-    var userEmail = email;
-    var userPassword = password;
-    auth.$signInWithEmailAndPassword(userEmail, userPassword).then(function(firebaseUser) {
+    auth.$signInWithEmailAndPassword(email, password).then(function(firebaseUser) {
+      console.info("Signed in as:", firebaseUser.user.uid);
       //checks if user is within database
-      DataFactory.checkUserStatus().then(function(response){
-        if(response.data == true){
-          self.email = true;
-          //user is in the database. Don't do anything.
-        } else if (response.data == false){
-          //user is not in the database.
-          loginView();
-          self.email = ''; //sets button to LOGOUT
-          $scope.$apply();
-        }
-      }).catch(function(error) {
-      //error handling
-      console.log("Password authentication failed: ", error);
-    });
+      checkDatabaseForUser();
+  }).catch(function(error){
+    console.error("Authentication failed: ", error);
   });
 };
 
